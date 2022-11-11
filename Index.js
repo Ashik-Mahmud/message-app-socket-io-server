@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
 
 
 /* listen port */
-http.listen(port, () => {
+app.listen(port, () => {
   console.log("listening on *:5000");
 });
