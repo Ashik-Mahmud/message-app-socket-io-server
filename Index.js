@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { Server } = require("socket.io");
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 /* init middle wares */
 app.use(cors());
 
@@ -69,7 +69,7 @@ app.get("/", (req, res) => {
 
 
 /* listen port */
-http.listen(port, () => {
+http.listen(PORT, () => {
   console.log("listening on *:5000");
 });
 
