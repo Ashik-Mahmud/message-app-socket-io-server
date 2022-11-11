@@ -69,7 +69,7 @@ app.get("/", (req, res) => {
 
 
 /* listen port */
-app.listen(port, () => {
+http.listen(port, () => {
   console.log("listening on *:5000");
 });
 
