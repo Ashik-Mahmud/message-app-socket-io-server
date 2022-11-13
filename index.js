@@ -62,6 +62,11 @@ io.on("connection", async (socket) => {
     });
   });
 
+  /* typing indicator */
+  socket.on("typing", async (data) => {
+    socket.to(data.trim().toUpperCase()).emit("isTyping", {isTyping: true})
+  });
+
   socket.on("disconnect", () => {
     console.log("User was disconnected" + socket.id);
   });
