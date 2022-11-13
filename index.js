@@ -23,9 +23,10 @@ io.on("connection", async (socket) => {
   /* join room */
   socket.on("join_room", async (data) => {
     socket.join(data.roomId.trim().toUpperCase());
-    console.log(
-      socket.id + " User joined room: " + data.roomId.trim().toUpperCase()
-    );
+    socket.emit("welcome_message", {
+      message: "Welcome to the room " + data.roomId.trim().toUpperCase(),
+      name: data.yourName,
+    });
   });
 
   /* notify if someone join */
@@ -64,7 +65,7 @@ io.on("connection", async (socket) => {
 
   /* typing indicator */
   socket.on("typing", async (data) => {
-    socket.to(data.trim().toUpperCase()).emit("isTyping", {isTyping: true})
+    socket.to(data.trim().toUpperCase()).emit("isTyping", { isTyping: true });
   });
 
   socket.on("disconnect", () => {
